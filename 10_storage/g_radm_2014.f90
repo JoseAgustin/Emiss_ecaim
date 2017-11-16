@@ -11,6 +11,8 @@
 !
 ! ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include g_radm_2014.f90 -o radm2.exe
 !
+!   Si son mas de 8 capas arreglar linea 219
+!      eeft(i,j,ii,ih,9-levl)=eft(i,j,ii,ih,9-levl)+edum(ih)/WTM(ii)
 !
 !   Actualizacion de xlat, xlon             26/08/2012
 !   Conversion de unidades en aerosoles     04/10/2012
