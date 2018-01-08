@@ -9,6 +9,7 @@ salida*
 *.xlsx
 .tmpfile
 libnetcdf*
+trafico*
 02_Aemis2
 02_aemis/A*14.csv
 02_aemis/ANH3_2014.csv 

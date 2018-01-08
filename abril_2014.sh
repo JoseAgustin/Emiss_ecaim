@@ -20,8 +20,9 @@ echo $ProcessDir
 
 mes=4
 dia=22
- 
-while [ $dia -le 22 ] ;do
+dia2=22
+dia1=$dia 
+while [ $dia1 -le $dia2 ] ;do
 echo $dia
 cd $ProcessDir/04_temis
 
@@ -110,6 +111,6 @@ cd ../10_storage
 ./racm2.exe > ../racm2.log
  let dia=dia+1
 done
-#ncrcat -O wrfchemi.d01.radm2.2016-04-1* wrfchemi_d01_2016-04-16_00:00:00
-#mv wrfchemi_d01_2016-04-16_00:00:00 ../../DOMAIN/mecanismos/emisiones
+#ncrcat -O wrfchemi.d01.radm2.2014-0${mes}-1* wrfchemi_d01_2014-0${mes}-${dia}_00:00:00
+#mv wrfchemi_d01_2014-04-16_00:00:00 ../../DOMAIN/mecanismos/emisiones
 echo "DONE  guarda_RADM"
