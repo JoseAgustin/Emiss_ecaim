@@ -21,6 +21,7 @@
 !   Se incluyen NO y NO2 de moviles         01/11/2017
 !   Se incluye NAMELIST                     08/11/2017
 !   Se lee CDIM y titulo de localiza.csv    19/11/2017
+!   Cambio en scalp solo capa 1             04/08/2018
 !
 module vars
     integer :: nf    ! number of files antropogenic
@@ -272,9 +273,17 @@ subroutine lee
 			  do ih=1,nh
                 ! Emission from g to gmol by 1/WTM
                 if(ih.gt.9 .and. ih.lt.19) then
-                  eft(i,j,is,ih,levl)=eft(i,j,is,ih,levl)+edum(ih)/WTM(is)*scalp(ii)
+                  if(levl.lt.2) then
+                    eft(i,j,is,ih,levl)=eft(i,j,is,ih,levl)+edum(ih)/WTM(is)*scalp(ii)
+                  else
+                    eft(i,j,is,ih,levl)=eft(i,j,is,ih,levl)+edum(ih)/WTM(is)
+                  end if
                 else
-                  eft(i,j,is,ih,levld)=eft(i,j,is,ih,levld)+edum(ih)/WTM(is)*scalp(ii)
+                  if(levld.lt.2) then
+                    eft(i,j,is,ih,levld)=eft(i,j,is,ih,levld)+edum(ih)/WTM(is)*scalp(ii)
+                  else
+                    eft(i,j,is,ih,levld)=eft(i,j,is,ih,levld)+edum(ih)/WTM(is)
+                  end if
                 end if
 			  end do
           zlev =max(zlev,levl,levld)
