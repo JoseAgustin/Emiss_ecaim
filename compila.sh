@@ -47,4 +47,7 @@ ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include g_2014_racm.f90 -o ra
 ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include  g_cbm5_2014.f90 -o cbm5.exe &
 ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include g_radm_2014.f90 -o radm2.exe &
 ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include g_saprc_2014.f90 -o saprc.exe
+cd ../12_cmaq/
+ifort -O2 -axAVX -lnetcdff -L$NETCDF/lib -I$NETCDF/include  g_cbm5_cmaq.f90 -o cbm5_cmaq.exe
 cd ..
+

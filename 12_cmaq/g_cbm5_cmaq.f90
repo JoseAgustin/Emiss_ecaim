@@ -56,7 +56,7 @@ module varsc
     'ETOH ','IOLE ','MEOH ','FORM ','ISOP ','OLE  ','PAR  ', &
     'TERP ','TOL  ','XYL  ','CO2  ', &
     'PM_10','PMFP ','PSO4 ','PNO3 ','PM25I',&
-    'POA  ','PEC  '/)
+    'APOCI','PEC  '/)
     character(len=16),dimension(radm):: cname=(/'Carbon Monoxide ','NH3             ','NO              ', &
     'NO2  ','SO2  ','Acetaldehyde','METHANE','C3+Aldehydes','Ethene','Ethane', &
     'Ethanol','Internal OLE  ','Methanol','HCHO ','Isoprene','TOB (R-C=C)','Paraffin (C-C)', &
