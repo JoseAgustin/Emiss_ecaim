@@ -1,18 +1,19 @@
 !
-!	t_puntal.f90
+!	t_puntal.F90
 !	
 !
 !  Creado por Jose Agustin Garcia Reynoso el 06/06/12.
 ! Proposito
 !          Distribución temporal de las emisiones de fuentes puntuales
 !
-! ifort -O3 -axAVX  t_puntal.f90 -o Puntual.exe
+! ifort -O3 -axAVX  t_puntal.F90 -o Puntual.exe
 !
 !   modificado
 !   14/08/2012  nombre archivos de PM
 !   02/10/2012  Ajuste en horas dia previo subroutina lee
 !   12/07/2017  para 2014 y hEST
 !   18/07/2017  Incluye CO2, CN y CH4, dos alturas.
+!   30/03/2020  Para PGI
 !
 module vars
 integer, parameter::nsp=10 !number of compounds
