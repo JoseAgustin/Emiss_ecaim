@@ -132,7 +132,11 @@ subroutine lee
 	end do
 	close(16)
 	return
+#ifndef PGI
     323 format(2i,<nclass>F)
+#else
+    323 format(2i,55F)
+#endif
 end subroutine lee
 
 subroutine calculos
@@ -175,7 +179,11 @@ implicit none
 	write(20,'(A,A)')cname(j), 'Emissions'
 	write(20,*) size(grid2),current_date,', ',cdia
 		do k=1,size(grid2)
+#ifndef PGI
 			write(20,'(I7,x,<nh>(ES11.4,x))')grid2(k),(emis(k,j,i),i=1,size(emis,dim=3))
+#else
+                        write(20,'(I7,x,24(ES11.4,x))')grid2(k),(emis(k,j,i),i=1,size(emis,dim=3))
+#endif
             do i=1,size(emis,dim=3)
                suma=suma+emis(k,j,i)
             end do

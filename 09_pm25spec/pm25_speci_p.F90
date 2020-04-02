@@ -188,7 +188,11 @@ implicit none
     write(6,*)cname(j),",",suma
 	close(20)
 	end do
+#ifndef PGI
 200 format(I7,x,I3,x,<nh>(ES11.4,x),I3)
+#else
+200 format(I7,x,I3,x,24(ES11.4,x),I3)
+#endif
     print *,"*****  DONE PM2.5 POINT SPECIATION  *****"
 end subroutine guarda
 !                       _
