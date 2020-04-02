@@ -13,7 +13,7 @@
 !
 !   2/Ago/2012  se considera la vialidad en todo el municipio rlm
 !
-module vars3
+module varsv
 integer ::nm
 integer,allocatable :: grid(:),icve(:),grid2(:),icve2(:),icve3(:)
 real,allocatable ::rc(:),rlm(:),rlc(:)
@@ -21,7 +21,7 @@ real,allocatable :: sm(:),sc(:),sum(:)
 
 common /vars1/ nm
 
-end module vars3
+end module varsv
 program suma
 
     call lee
@@ -31,7 +31,7 @@ program suma
     call guarda
 contains
 subroutine lee
-use vars3
+use varsv
 implicit none
     integer i
     character(len=30) ::fname
@@ -59,7 +59,7 @@ implicit none
 end subroutine
 
 subroutine calculos
-use vars3
+use varsv
 implicit none
     integer i,j,l    
     call count
@@ -86,18 +86,22 @@ implicit none
 end subroutine calculos
 
 subroutine guarda
-use vars3
+use varsv
 implicit none
 integer i,j
 open(unit=11,file='salida2.csv',action='write')
     write(11, *)"GRID, CVE_ENT_MUN, frac, suma"
     do i=1,size(grid2)
+#ifndef PGI
      write(11, '(I8,",",I6,2(",",ES))') grid2(i),icve3(i),rc(i),sum(i)
+#else
+     write(11, '(I8,",",I6,2(",",E))') grid2(i),icve3(i),rc(i),sum(i)
+#endif
     end do
 close (11)
 end subroutine guarda
 subroutine count
-    use vars3
+    use varsv
     logical,allocatable::xl(:)
     allocate(xl(size(icve)))
     xl=.true.
